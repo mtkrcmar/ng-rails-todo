@@ -1,0 +1,1 @@
+sandshark = angular.module('sandshark', [ ]);
