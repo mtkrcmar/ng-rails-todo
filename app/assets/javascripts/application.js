@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require ../../../vendor/assets/bower_components/angular/angular.js
+//= require ../../../vendor/assets/bower_components/angular-route/angular-route.js
+//= require angular-rails-templates.js.erb
 //= require_tree .
