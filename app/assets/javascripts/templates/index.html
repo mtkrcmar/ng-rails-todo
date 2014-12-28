@@ -1,31 +1,36 @@
 <header class="row">
-    <h1 class="text-center col-md-6 col-md-offset-3">Find Recipes</h1>
+    <h1 class="text-center col-md-6 col-md-offset-3">Todo List</h1>
 </header>
-<section class="row">
-    <form>
-        <div class="form-group col-md-6 col-md-offset-3">
-            <label for="keywords" class="sr-only">Keywords</label>
-            <input ng-model="keywords" name="keywords" type="text" autofocus class="form-control"
-                   placeholder="TODO to search for!">
-        </div>
-        <div class="form-group col-md-6 col-md-offset-3 text-center">
-            <button ng-click="search(keywords)" class="btn btn-primary btn-lg">Search</button>
-        </div>
-    </form>
+<section class="center-block">
+    <h1>Search:</h1><input class="form-inline" ng-model="searchText">
+    <button class="btn btn-primary" ng-click="predicate ='name'">Ascending</button>
+    <button class="btn btn-primary" ng-click="predicate ='-name'">Descending</button>
+    </div>
 </section>
 <hr>
-<section class="row" ng-if="todos">
-    <h1 class="text-center h2">Results</h1>
-    <ul class="list-unstyled">
-        <li ng-repeat="todo in todos">
-            <section class="well col-md-6 col-md-offset-3">
-                <h1 class="h3 col-md-6 text-right" style="margin-top: 0"><a href="#">{{todo.name}}</a></h1>
 
-                <div class="col-md-6">
-                    <button class="btn btn-info">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+<div ng-controller="TodoController">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Todo</th>
+            <th>Due Date</th>
+            <th>Modify</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="todo in items | filter:searchText | orderBy:predicate">
+            <td>{{ todo.name }}</td>
+            <td>{{ todo.due }}</td>
+            <td>
+                <div class="btn-group">
+                    <button class="btn btn-default" ng-click="editUser(user.id)">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button class="btn btn-danger" ng-click="deleteTodo(todo.id)">Delete</button>
                 </div>
-            </section>
-        </li>
-    </ul>
-</section>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
