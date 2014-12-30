@@ -17,58 +17,58 @@ todos = [
   {
     id: 1
     name: 'Go grocery shopping',
-    due: 'This week'
+    due: '20130403T00:00:00'
   },
   {
     id: 2,
     name: 'Pay car payment',
-    due: 'Tomorrow'
+    due: '20141031T00:00:00'
 
   },
   {
     id: 3
     name: 'Buy dog food',
-    due: 'IDK'
+    due: '20110221T00:00:00'
   },
   {
     id: 5
     name: 'Eat',
-    due: 'Later'
+    due: '20140423T00:00:00'
   },
   {
     id: 6
     name: 'Finish reading a book',
-    due: '1/2 year'
+    due: '20090513T00:00:00'
   },
   {
     id: 7
     name: 'Go to the gym',
-    due: 'Every week'
+    due: '20210619T00:00:00'
   },
   {
     id: 8
     name: 'Make food',
-    due: 'Tonight'
+    due: '19990352T00:00:00'
   },
   {
     id: 9
     name: 'Learn how to build JSON API',
-    due: 'This year'
+    due: '20220222T00:00:00'
   },
   {
     id: 10
     name: 'Deploy to heroku',
-    due: 'Already did'
+    due: '20141225T00:00:00'
   },
   {
     id: 11
     name: 'Anything',
-    due: '64 seconds'
+    due: '29990111T00:00:00'
   },
   {
     id: 12
     name: 'Sign up for classes',
-    due: 'Yesterday'
+    due: '20140704T00:00:00'
   },
 ]
 
