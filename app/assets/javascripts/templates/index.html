@@ -1,10 +1,15 @@
 <header class="row">
     <h1 class="text-center col-md-6 col-md-offset-3">Todo List</h1>
 </header>
-<section class="center-block">
-    <h1>Search:</h1><input class="form-inline" ng-model="searchText">
-    <button class="btn btn-primary" ng-click="predicate ='name'">Ascending</button>
-    <button class="btn btn-primary" ng-click="predicate ='-name'">Descending</button>
+<section class="container-fluid">
+    <h3>Search:</h3><input class="input-md" ng-model="searchText" placeholder="Enter a task...">
+    <br>
+    <br>
+    <br>
+        <button class="btn btn-default" ng-click="predicate ='name'">A-Z</button>
+        <button class="btn btn-default" ng-click="predicate ='-name'">Z-A</button>
+        <button class="btn btn-default" ng-click="predicate ='due'">High Urgency</button>
+        <button class="btn btn-default" ng-click="predicate ='-due'">Low Urgency</button>
     </div>
 </section>
 <hr>
@@ -21,7 +26,7 @@
         <tbody>
         <tr ng-repeat="todo in items | filter:searchText | orderBy:predicate">
             <td>{{ todo.name }}</td>
-            <td>{{ todo.due }}</td>
+            <td>{{ todo.due | date:'MM/dd/yyyy' }}</td>
             <td>
                 <div class="btn-group">
                     <button class="btn btn-default" ng-click="editUser(user.id)">

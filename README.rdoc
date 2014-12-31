@@ -1,28 +1,26 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Still a work in progress, basic UI set up with canned data to see mockup of app. Still need to build API in rails and
+interface with Angular.
 
-Things you may want to cover:
+Work in progress located at: https://radiant-retreat-2658.herokuapp.com/
 
-* Ruby version
+Features that still need to be implemented:
+* API
+* Add/Delete function of tasks
+* Authentication system using oAuth
+* Email notification for upcoming tasks
+* Improve the UI to look cleaner
 
-* System dependencies
+Current technologies used:
+* Ruby on Rails 4
+* AngularJS
+* Bower
+* Heroku
 
-* Configuration
+Versions:
+* Ruby: 2.0.0p481
+* AngularJS: 1.3.8
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Gems:
+* Will fill this in later
