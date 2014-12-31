@@ -1,8 +1,9 @@
 class CreateTodos < ActiveRecord::Migration
   def change
     create_table :todos do |t|
-      t.string :name
-      t.datetime :due_date
+      t.string :title
+      t.integer :due
+      t.boolean :completed, default: false
 
       t.timestamps null: false
     end
