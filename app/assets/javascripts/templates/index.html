@@ -6,33 +6,34 @@
     <br>
     <br>
     <br>
-        <button class="btn btn-default" ng-click="predicate ='name'">A-Z</button>
-        <button class="btn btn-default" ng-click="predicate ='-name'">Z-A</button>
-        <button class="btn btn-default" ng-click="predicate ='due'">High Urgency</button>
-        <button class="btn btn-default" ng-click="predicate ='-due'">Low Urgency</button>
-    </div>
+        <button class="btn btn-default" ng-click="predicate ='title'">A-Z</button>
+        <button class="btn btn-default" ng-click="predicate ='-title'">Z-A</button>
+        <button class="btn btn-default" ng-click="predicate ='completed'">Complete</button>
+        <button class="btn btn-default" ng-click="predicate ='-completed'">Incomplete</button>
 </section>
 <hr>
 
-<div ng-controller="TodoController">
+<div ng-controller="ApiController as api">
     <table class="table table-striped">
         <thead>
         <tr>
             <th>Todo</th>
             <th>Due Date</th>
+            <th>Completed</th>
             <th>Modify</th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="todo in items | filter:searchText | orderBy:predicate">
-            <td>{{ todo.name }}</td>
-            <td>{{ todo.due | date:'MM/dd/yyyy' }}</td>
+        <tr ng-repeat="task in tasks | filter:searchText | orderBy:predicate">
+            <td>{{ task.title }}</td>
+            <td>{{ task.due | date:'MM/dd/yyyy' }}</td>
+            <td>{{ task.completed}}</td>
             <td>
                 <div class="btn-group">
-                    <button class="btn btn-default" ng-click="editUser(user.id)">
+                    <button class="btn btn-default" ng-click="">
                         <span class="glyphicon glyphicon-pencil"></span> Edit
                     </button>
-                    <button class="btn btn-danger" ng-click="deleteTodo(todo.id)">Delete</button>
+                    <button class="btn btn-danger">Delete</button>
                 </div>
             </td>
         </tr>
