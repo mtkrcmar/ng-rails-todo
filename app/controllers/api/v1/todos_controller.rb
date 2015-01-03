@@ -9,17 +9,16 @@ module Api
         respond_with(Todo.all.order("completed ASC").order("id DESC"))
       end
 
-      def todo_params
-        params.require(:title).permit(:completed, :due)
+      def safe_params
+        params.require(:title).permit(:due, :completed)
       end
-
 
       def show
         respond_with(Todo.find(params[:id]))
       end
 
       def create
-        @todo = Todo.new(todo_params)
+        @todo = Todo.save(safe_params)
         if @todo.save
           respond_to do |format|
             format.json { render :json => @todo}
@@ -29,7 +28,7 @@ module Api
 
       def update
         @todo = Todo.find(params[:id])
-        if @todo.update(todo_params)
+        if @todo.update(safe_params)
           respond_to do |format|
             format.json { render :json => @todo}
           end

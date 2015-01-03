@@ -1,3 +1,4 @@
+
 <header class="row">
     <h1 class="text-center col-md-6 col-md-offset-3">Todo List</h1>
 </header>
@@ -13,7 +14,12 @@
 </section>
 <hr>
 
+
 <div ng-controller="ApiController as api">
+
+    <input placeholder="todo" type="text" name="title"  ng-model="task.title" />
+    <button class="btn btn-info" ng-click="newTask()" type="submit">Post Task</button>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -39,4 +45,12 @@
         </tr>
         </tbody>
     </table>
+
+
+    <!--<form ng-controller="PostController">-->
+        <!--<input placeholder="todo" type="text" name="title"  ng-model="task.title" />-->
+        <!--<button class="btn btn-info" ng-click="newTask()" type="submit">Post Task</button>-->
+    <!--</form>-->
+
 </div>
+
