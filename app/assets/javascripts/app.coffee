@@ -18,6 +18,7 @@ sandshark.config(['$routeProvider',
 controllers = angular.module('controllers', [])
 controllers.controller("TodoController", ['$scope', '$routeParams', '$location',
   ($scope, $routeParams, $location)->
+    console.log('Getting Started')
 ])
 
 #controllers.controller("ApiController", ['Restangular', '$resource', '$scope',
@@ -28,13 +29,25 @@ controllers.controller("TodoController", ['$scope', '$routeParams', '$location',
 
 controllers.controller("ApiController", ['$scope', 'Restangular',
   ($scope, Restangular) ->
-    @baselist = Restangular.all('api/v1/todos/')
-    @baselist.getList('').then((tasks) ->
-      $scope.tasks = tasks)
+    $scope.getTasks = () ->
+      @baselist = Restangular.all('api/v1/todos/')
+      @baselist.getList('').then((tasks) ->
+        $scope.tasks = tasks)
 
+    $scope.newTaskTitle = ('')
     $scope.newTask = () ->
-    Restangular.all("api/v1/todos").post({title: 'blah'}).then (postedUser) ->
-      console.log("Success")
+      Restangular.one("api/v1").post('todos', (title: $scope.newTaskTitle)).then (postedUser) ->
+        @baselist = Restangular.all('api/v1/todos/')
+        @baselist.getList('').then((tasks) ->
+          $scope.tasks = tasks
+          $scope.newTaskTitle = [])
+
+    $scope.deleteTask = (task) ->
+      task.remove () ->
+        index = $scope.tasks.indexOf(task)
+        $scope.tasks.splice(index, 1).then(deletedTask) ->
+          @baselist = Restangular.all('api/v1/todos/')
+          @baselist.getList('').then($scope.getTasks())
 ])
 
 #controllers.controller("PostController", ['$scope', 'Restangular',

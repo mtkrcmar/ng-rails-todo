@@ -17,7 +17,7 @@
 
 <div ng-controller="ApiController as api">
 
-    <input placeholder="todo" type="text" name="title"  ng-model="task.title" />
+    <input placeholder="todo" type="text" name="title"  ng-model="newTaskTitle" />
     <button class="btn btn-info" ng-click="newTask()" type="submit">Post Task</button>
 
     <table class="table table-striped">
@@ -39,18 +39,12 @@
                     <button class="btn btn-default" ng-click="">
                         <span class="glyphicon glyphicon-pencil"></span> Edit
                     </button>
-                    <button class="btn btn-danger">Delete</button>
+                    <button ng-click="deleteTask(task)" class="btn btn-danger">Delete</button>
                 </div>
             </td>
         </tr>
         </tbody>
     </table>
-
-
-    <!--<form ng-controller="PostController">-->
-        <!--<input placeholder="todo" type="text" name="title"  ng-model="task.title" />-->
-        <!--<button class="btn btn-info" ng-click="newTask()" type="submit">Post Task</button>-->
-    <!--</form>-->
 
 </div>
 

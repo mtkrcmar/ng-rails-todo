@@ -18,4 +18,5 @@
 //= require angular-rails-templates.js.erb
 //= require ../../../vendor/assets/bower_components/underscore/underscore.js
 //= require ../../../vendor/assets/bower_components/restangular/dist/restangular.min
+//= require app
 //= require_tree .
