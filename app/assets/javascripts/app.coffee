@@ -3,10 +3,11 @@ sandshark = angular.module('sandshark', [
   'ngResource',
   'ngRoute',
   'controllers',
+  'restangular',
 ])
 
 sandshark.config(['$routeProvider',
-  ($routeProvider)->
+  ($routeProvider) ->
     $routeProvider
     .when('/',
       templateUrl: "index.html"
@@ -15,13 +16,14 @@ sandshark.config(['$routeProvider',
 ])
 
 controllers = angular.module('controllers', [])
-controllers.controller("TodoController", ['$scope', '$routeParams', '$location',
-  ($scope, $routeParams, $location)->
-])
 
-controllers.controller("ApiController", ['$resource', '$scope',
-  ($resource, $scope) ->
-    Tasks = $resource('/api/v1/todos')
-    $scope.tasks = Tasks.query()
-])
+controllers.controller("ApiController", ['$scope', 'Restangular',
+  ($scope, Restangular) ->
+    @baselist = Restangular.all('api/v1/todos/')
+    @baselist.getList('').then((tasks) ->
+      $scope.tasks = tasks)
 
+    $scope.newTask = () ->
+    Restangular.all("api/v1/todos").post({title: 'blah'}).then (postedUser) ->
+      console.log("Success")
+])
