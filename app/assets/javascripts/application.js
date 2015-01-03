@@ -16,4 +16,6 @@
 //= require ../../../vendor/assets/bower_components/angular-route/angular-route.js
 //= require ../../../vendor/assets/bower_components/angular-resource/angular-resource.js
 //= require angular-rails-templates.js.erb
+//= require ../../../vendor/assets/bower_components/underscore/underscore.js
+//= require ../../../vendor/assets/bower_components/restangular/dist/restangular.min
 //= require_tree .
