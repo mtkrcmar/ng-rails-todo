@@ -24,7 +24,6 @@ controllers.controller("TodoController", ['$scope', '$routeParams', '$location',
 
 controllers.controller("ApiController", ['$scope', 'Restangular',
   ($scope, Restangular) ->
-
     @baselist = Restangular.all('api/v1/todos/')
     @baselist.getList('').then((tasks) ->
       $scope.tasks = tasks)
@@ -41,7 +40,8 @@ controllers.controller("ApiController", ['$scope', 'Restangular',
     $scope.deleteTask = (task) ->
       task.remove () ->
         index = $scope.tasks.indexOf(task)
-        $scope.tasks.splice(index, 1).then(deletedTask) ->
-          @baselist = Restangular.all('api/v1/todos/')
-          @baselist.getList('').then($scope.getTasks())
+        $scope.tasks.splice(index, 1)
+      @baselist = Restangular.all('api/v1/todos/')
+      @baselist.getList('').then((tasks) ->
+        $scope.tasks = tasks)
 ])
