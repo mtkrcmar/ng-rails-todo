@@ -10,7 +10,7 @@ module Api
       end
 
       def safe_params
-        params.require(:title).permit(:due, :completed)
+        params.require(:todo).permit(:title, :due, :completed)
       end
 
       def show
@@ -18,10 +18,10 @@ module Api
       end
 
       def create
-        @todo = Todo.save(safe_params)
+        @todo = Todo.create!(safe_params)
         if @todo.save
           respond_to do |format|
-            format.json { render :json => @todo}
+            format.json { render :json => @todo }
           end
         end
       end
@@ -30,7 +30,7 @@ module Api
         @todo = Todo.find(params[:id])
         if @todo.update(safe_params)
           respond_to do |format|
-            format.json { render :json => @todo}
+            format.json { render :json => @todo }
           end
         end
       end
