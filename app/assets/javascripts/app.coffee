@@ -24,18 +24,19 @@ controllers.controller("TodoController", ['$scope', '$routeParams', '$location',
 
 controllers.controller("ApiController", ['$scope', 'Restangular',
   ($scope, Restangular) ->
-    $scope.getTasks = () ->
-      @baselist = Restangular.all('api/v1/todos/')
-      @baselist.getList('').then((tasks) ->
-        $scope.tasks = tasks)
+
+    @baselist = Restangular.all('api/v1/todos/')
+    @baselist.getList('').then((tasks) ->
+      $scope.tasks = tasks)
 
     $scope.newTaskTitle = ('')
     $scope.newTask = () ->
-      Restangular.one("api/v1").post('todos', (title: $scope.newTaskTitle)).then (postedUser) ->
-        @baselist = Restangular.all('api/v1/todos/')
-        @baselist.getList('').then((tasks) ->
-          $scope.tasks = tasks
-          $scope.newTaskTitle = [])
+      Restangular.one("api/v1").post('todos',
+        (title: $scope.newTaskTitle)).then (postedUser) ->
+      @baselist = Restangular.all('api/v1/todos/')
+      @baselist.getList('').then((tasks) ->
+        $scope.tasks = tasks
+        $scope.newTaskTitle = [])
 
     $scope.deleteTask = (task) ->
       task.remove () ->
