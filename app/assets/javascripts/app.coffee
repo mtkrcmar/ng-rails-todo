@@ -16,6 +16,7 @@ sandshark.config(['$routeProvider',
 ])
 
 controllers = angular.module('controllers', [])
+
 controllers.controller("TodoController", ['$scope', '$routeParams', '$location',
   ($scope, $routeParams, $location)->
     console.log('Getting Started')

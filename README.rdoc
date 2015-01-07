@@ -1,22 +1,21 @@
 == README
 
-Still a work in progress, basic UI set up with canned data to see mockup of app. Still need to build API in rails and
-interface with Angular.
+A simple todo single page application written in AngularJS that allows CRUD operations against an API written in rails.
 
 Work in progress located at: https://radiant-retreat-2658.herokuapp.com/
+NOTE: Database is currently not working on heroku, project is functioning locally.
 
 Features that still need to be implemented:
-* API
-* Add/Delete function of tasks
-* Authentication system using oAuth
+* Edit function of tasks
+* User account + authentication system using Devise
 * Email notification for upcoming tasks
-* Improve the UI to look cleaner
 
 Current technologies used:
 * Ruby on Rails 4
 * AngularJS
 * Bower
 * Heroku
+* Twitter Bootstrap
 
 Versions:
 * Ruby: 2.0.0p481
