@@ -3,7 +3,7 @@ sandshark = angular.module('sandshark', [
   'ngResource',
   'ngRoute',
   'controllers',
-  'restangular',
+  'restangular'
 ])
 
 sandshark.config(['$routeProvider',
@@ -29,9 +29,11 @@ controllers.controller("ApiController", ['$scope', 'Restangular',
       $scope.tasks = tasks)
 
     $scope.newTaskTitle = ('')
+    $scope.newTaskDate = ('')
+    $scope.newTaskComplete = false
     $scope.newTask = () ->
       Restangular.one("api/v1").post('todos',
-        (title: $scope.newTaskTitle)).then (postedUser) ->
+        (title: $scope.newTaskTitle, due: $scope.newTaskDate, completed: $scope.newTaskComplete)).then (postedUser) ->
       @baselist = Restangular.all('api/v1/todos/')
       @baselist.getList('').then((tasks) ->
         $scope.tasks = tasks
@@ -44,4 +46,10 @@ controllers.controller("ApiController", ['$scope', 'Restangular',
       @baselist = Restangular.all('api/v1/todos/')
       @baselist.getList('').then((tasks) ->
         $scope.tasks = tasks)
+
+#    $scope.completedRadio = false
+#    $scope.completeTask = (task) ->
+#      task.update() ->
+#        index = $scope.tasks.indexOf(task)
+#        Restangular.one("api/v1/todos").post('index', (due: $scope.completedRadio))
 ])

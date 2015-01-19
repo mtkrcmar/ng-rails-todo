@@ -17,10 +17,10 @@
 <div ng-controller="ApiController as api">
     <section class="container-fluid">
         <form ng-submit="newTask()">
-            <input class="form-control" placeholder="Enter TODO..." type="text" name="title" ng-model="newTaskTitle"
+            <input class="form-control" placeholder="Enter TODO" type="text" name="title" ng-model="newTaskTitle"
                    required/>
+            <input class="form-control" placeholder="Enter due date" type="date" ng-model="newTaskDate">
             <br>
-            Placeholder for due date selection
             <br>
             <br>
             <button class="btn btn-info" type="submit">Post Task</button>
@@ -32,7 +32,7 @@
             <tr>
                 <th>Todo</th>
                 <th>Due Date</th>
-                <th>Completed</th>
+                <!--<th>Completed</th>-->
                 <th>Modify</th>
             </tr>
             </thead>
@@ -40,12 +40,13 @@
             <tr ng-repeat="task in tasks | filter:searchText | orderBy:predicate">
                 <td>{{ task.title }}</td>
                 <td>{{ task.due | date:'MM/dd/yyyy' }}</td>
-                <td>{{ task.completed}}</td>
+                <!--<td>{{ task.completed}}</td>-->
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-default" ng-click="">
-                            <span class="glyphicon glyphicon-pencil"></span> Edit
-                        </button>
+                        <!--<button ng-click="completeTask(task)" class="btn btn-primary" ng-model="completedRadio" btn-checkbox btn-checkbox-true="true" btn-checkbox-false="false">Complete?</button>-->
+                        <!--<button ng-click="editTask(task)" class="btn btn-default">-->
+                            <!--<span class="glyphicon glyphicon-pencil"></span> Edit-->
+                        <!--</button>-->
                         <button ng-click="deleteTask(task)" class="btn btn-danger">Delete</button>
                     </div>
                 </td>
